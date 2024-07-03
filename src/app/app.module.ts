@@ -3,16 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InicioComponent } from './pages/inicio/inicio.component';
+
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat'; 
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'; 
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+
+    AngularFireStorageModule,
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
